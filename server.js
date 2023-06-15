@@ -6,6 +6,14 @@ const PORT = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const userRouter = require('./routes/user.js');
+
+app.use('/user', userRouter);
+
+userRouter.get('/', (req, res) => {
+  // Lógica para obtener la lista de usuarios
+});
+
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
@@ -13,6 +21,7 @@ const pool = new Pool({
     password: '1234',
     port: 5432, // puerto por defecto de PostgreSQL
 });
+
 
 // Prueba de conexión a la base de datos
 pool.connect((err, client, release) => {
