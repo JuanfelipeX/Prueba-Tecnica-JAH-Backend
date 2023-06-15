@@ -14,6 +14,12 @@ userRouter.get('/', (req, res) => {
   // Lógica para obtener la lista de usuarios
 });
 
+userRouter.post('/login', (req, res) => {
+  // Lógica de autenticación y generación de token JWT
+  // ...
+});
+
+
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
